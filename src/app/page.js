@@ -1,9 +1,9 @@
 "use client";
-
+import dynamic from "next/dynamic";
 import { useState, useEffect, useRef } from "react";
 import "./page.css";
 import Modal from "./Modal";
-import Lottie from "lottie-react";
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import BlinkingPoint from "./Blink";
 import GlowingEffect from "./GlowingEffect";
 import SliderMenu from "./SliderMenu";
@@ -15,7 +15,7 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [isLoading, setIsLoading] = useState(true); // State for managing the preloader visibility
   const [showBoxStroke, setShowBoxStroke] = useState(false); // State to toggle the PNG visibility for the book
   const [showGallery, setShowGallery] = useState(false); // State to toggle the PNG visibility for the book
-  const [width, setWidth] = useState(window.innerWidth); // Initialize state with current window width
+  const [width, setWidth] = useState(0); // Initialize state with current window width
   const [snakestroke, setsnakestroke] = useState(false);
   const [scrollstroke, setscrollstroke] = useState(false);
   const [BlackSnakeReturnStroke, setBlackSnakeStrokeReturn] = useState(false);
@@ -54,10 +54,19 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
   };
 
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
+    if (typeof window !== "undefined") {
+      setWidth(window.innerWidth);
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+      const handleResize = () => {
+        setWidth(window.innerWidth);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
 
   useEffect(() => {
