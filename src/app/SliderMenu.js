@@ -11,61 +11,109 @@ const SliderMenu = ({ isOpen, onClose }) => {
         left: 0,
         width: isOpen ? "300px" : "0px",
         height: "100%",
-        backgroundColor: "#410c07",
+        backgroundColor: "#1c1c1c",
         color: "white",
         overflowX: "hidden",
         transition: "width 0.3s ease",
-        zIndex: 10000000000,
-        borderRight: isOpen && "10px solid gold",
+        zIndex: 100000000000,
         padding: isOpen ? "20px" : "0",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
       }}
     >
       {/* Close Button */}
       <button
         style={{
           position: "absolute",
-          top: "10px",
-          right: "10px",
+          top: "20px",
+          right: "20px",
           background: "none",
           color: "white",
           border: "none",
           fontSize: "20px",
+          cursor: "pointer",
         }}
         onClick={onClose}
       >
-        <img src="/close_icon.png" style={{ width: "40px", height: "40px" }} />
+        <img
+          src="/close_icon.png"
+          alt="Close"
+          style={{ width: "30px", height: "30px" }}
+        />
       </button>
 
       {/* Menu Links */}
       <div style={{ marginTop: "50px" }}>
-        <div className="meni_link">Games</div>
-        <div className="meni_link">Presale</div>
-        <div className="meni_link">Tokenomics</div>
-        <div className="meni_link">How to buy</div>
-        <div className="meni_link">About</div>
+        {["HOME", "EPISODES", "HOW TO BUY", "TOKENOMICS", "FAQ"].map(
+          (link, index) => (
+            <div
+              key={index}
+              className="menu_link"
+              style={{
+                fontSize: "24px",
+                margin: "15px 0",
+                display: "flex",
+                alignItems: "center",
+                cursor: "pointer",
+                transition: "color 0.3s ease",
+              }}
+              onMouseEnter={(e) => (e.target.style.color = "#ff8a65")}
+              onMouseLeave={(e) => (e.target.style.color = "white")}
+            >
+              <span
+                style={{
+                  marginRight: "10px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "transform 0.3s ease",
+                }}
+                onMouseEnter={(e) => (e.target.style.transform = "scale(1.2)")}
+                onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+              >
+                <img
+                  src="/dragon.png" // Use your Chinese-themed icon or image here
+                  alt="Lantern"
+                  style={{ width: "24px", height: "24px" }}
+                />
+              </span>
+              {link}
+            </div>
+          )
+        )}
       </div>
 
-      {/* <div
+      {/* Social Media Icons */}
+      <div
         style={{
-          position: "absolute",
-          zIndex: 10000000000,
-          bottom: "10px",
-          height: "100px",
-          background: "white",
+          display: "flex",
+          justifyContent: "space-around",
+          marginBottom: "20px",
         }}
       >
-        <a className="atag" href="https://twitter.com" target="_blank">
-          <img className="socialimg1" src="/ttw.png" alt="Twitter"></img>
-        </a>
-
-        <a className="atag1" href="https://telegram.com" target="_blank">
-          <img className="socialimg" src="/telegram.png" alt="Twitter"></img>
-        </a>
-
-        <a className="atagdex" href="https://dexscreener.com" target="_blank">
-          <img className="socialimgdex" src="/dex.png" alt="Twitter"></img>
-        </a>
-      </div> */}
+        {[
+          { href: "https://dexscreener.com", src: "/telegram.png" },
+          { href: "https://telegram.com", src: "/telegram.png" },
+          { href: "https://twitter.com", src: "/telegram.png" },
+        ].map((icon, index) => (
+          <a
+            key={index}
+            href={icon.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ transition: "transform 0.3s ease" }}
+            onMouseEnter={(e) => (e.target.style.transform = "scale(1.2)")}
+            onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+          >
+            <img
+              style={{ width: "30px", height: "30px", cursor: "pointer" }}
+              src={icon.src}
+              alt="Social Icon"
+            />
+          </a>
+        ))}
+      </div>
     </div>
   );
 };

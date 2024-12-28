@@ -221,7 +221,6 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
           }}
         />
       </div>
-
       {/* Humberger */}
       <div
         style={{
@@ -244,10 +243,8 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
           }}
         />
       </div>
-
       {/* Slider Menu */}
       <SliderMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-
       {/* Left Arrow */}
       {canScrollLeft && (
         <div
@@ -257,40 +254,8 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 1000000,
-            background: "gold",
-            color: "black",
-            padding: "10px",
-            borderRadius: "50%",
           }}
           // onClick={() => scrollBody("left")}
-        >
-          <img
-            src={"/assets/arrow.png"}
-            alt="Close"
-            style={{
-              height: "40px",
-              width: "40px",
-              // cursor: "pointer",
-            }}
-          />
-        </div>
-      )}
-
-      {/* Right Arrow */}
-      {canScrollRight && (
-        <div
-          style={{
-            position: "fixed",
-            right: "10px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 1000000,
-            background: "gold",
-            color: "black",
-            padding: "10px",
-            borderRadius: "50%",
-          }}
-          // onClick={() => scrollBody("right")}
         >
           <img
             src={"/assets/arrow.png"}
@@ -304,15 +269,58 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
           />
         </div>
       )}
+      {/* Right Arrow */}
+      {canScrollRight && (
+        <div
+          style={{
+            position: "fixed",
+            right: "10px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1000000,
+          }}
+          // onClick={() => scrollBody("right")}
+        >
+          <img
+            src={"/assets/arrow.png"}
+            alt="Close"
+            style={{
+              height: "40px",
+              width: "40px",
 
-      <a className="atag" href="https://twitter.com" target="_blank">
-        <img className="socialimg1" src="/ttw.png" alt="Twitter"></img>
-      </a>
+              // cursor: "pointer",
+            }}
+          />
+        </div>
+      )}
 
-      <a className="atag1" href="https://telegram.com" target="_blank">
-        <img className="socialimg" src="/telegram.png" alt="Twitter"></img>
-      </a>
-
+      <div
+        style={{
+          position: "fixed",
+          bottom: "4%",
+          left: "4%",
+          display: "flex",
+          gap: "10px",
+          alignItems: "center",
+          zIndex: 10000000,
+        }}
+      >
+        <a className="" href="https://twitter.com" target="_blank">
+          <img
+            style={{ width: "40px", height: "40px" }}
+            className=""
+            src="/ttw.png"
+            alt="Twitter"
+          ></img>
+        </a>
+        <a className="" href="https://telegram.com" target="_blank">
+          <img
+            style={{ width: "40px", height: "40px" }}
+            src="/telegram.png"
+            alt="Twitter"
+          ></img>
+        </a>
+      </div>
       <div style={{ position: "absolute", top: "72%", left: "32.5%" }}>
         <img
           src={"/the-sand-timer.gif"}
@@ -323,14 +331,13 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
           }}
         />
       </div>
-
       {/* Snake Part */}
       {/* Snake Animation */}
       <div
         style={{
           position: "absolute",
-          top: "57%",
-          left: "50%",
+          top: "50%",
+          left: "55%",
           transform: "translate(-50%, -50%)",
           width: "22%",
           cursor: "url(/assets/fire.png), auto",
@@ -358,7 +365,8 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           setShowSnake(false); // Show animation on hover out
         }}
       >
-        <Lottie
+        {/* Sanke with table */}
+        {/* <Lottie
           animationData={require("../../public/assets/Json/Snake 2.json")} // Path to your JSON animation
           loop={true}
           style={{
@@ -367,9 +375,20 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
             display: "block",
             borderRadius: "15px", // Apply same border radius as the container
           }}
+        /> */}
+
+        <img
+          className="snake"
+          src="/Snake-Game-5.gif"
+          alt="Stroke Snake PNG"
+          style={{
+            width: "50%",
+            height: "50%",
+            display: "block",
+            borderRadius: "15px",
+          }}
         />
       </div>
-
       {/* Stroke Snake PNG */}
       <img
         className="snake"
@@ -388,7 +407,9 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
         }}
       />
       {/* TABLES */}
-      <img
+
+      {/* Remove table */}
+      {/* <img
         className="table"
         src="/assets/table.png"
         alt="Table"
@@ -400,8 +421,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           width: width <= 768 ? "0%" : "20%",
           zIndex: 5,
         }}
-      />
-
+      /> */}
       {/* Book Part */}
       {/* Book Animation */}
       <div
@@ -411,7 +431,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "55.5%",
           left: "27%",
           transform: "translate(-50%, -50%)",
-          width: width <= 768 ? "21%" : "14%",
+          width: width <= 768 ? "14%" : "14%",
           zIndex: 7, // Place above other elements
           transition: "all 0.3s ease-in-out",
           opacity: showBookStroke ? 0 : 1, // Hide animation when hovered
@@ -497,7 +517,6 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       >
         <BlinkingPoint color="white" />
       </div>
-
       {/* BlackSnake */}
       <div
         style={{
@@ -514,7 +533,6 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       >
         <BlinkingPoint color="white" />
       </div>
-
       <div
         style={{
           position: "absolute",
@@ -530,7 +548,6 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       >
         <BlinkingPoint color="white" />
       </div>
-
       <div
         style={{
           position: "absolute",
@@ -561,21 +578,6 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
       >
         <GlowingEffect />
       </div>
-      <div
-        style={{
-          position: "absolute",
-          top: "70%",
-          left: "9%",
-          transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
-          transition: "all 0.3s ease-in-out",
-          zIndex: 1, // Place behind the GIF
-
-          pointerEvents: "none",
-        }}
-      >
-        <GlowingEffect color={"250, 235, 105"} />
-      </div>
 
       {/* Book Stroke PNG */}
       <img
@@ -592,7 +594,6 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           opacity: showBookStroke ? 1 : 0, // Show PNG only when hovered
         }}
       />
-
       <div
         style={{
           position: "absolute",
@@ -624,7 +625,6 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           loop={true}
         />
       </div>
-
       <img
         src="/assets/sandookStroke.png"
         alt="Book Stroke PNG"
@@ -718,7 +718,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           setShowGallery(false);
         }}
       ></div>
-
       <div
         style={{
           position: "absolute",
@@ -730,9 +729,14 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           transition: "all 0.3s ease-in-out",
         }}
       >
-        <Lottie
-          animationData={require("../../public/assets/Json/Light.json")}
-          loop={true}
+        <img
+          src="/assets/light.gif"
+          alt="Almari PNG"
+          style={{
+            transition: "all 0.3s ease-in-out",
+            width: "100%",
+            height: "100%",
+          }}
         />
       </div>
       <div
@@ -774,7 +778,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           zIndex: 11,
         }}
       />
-
       <div
         style={{
           position: "absolute",
@@ -791,7 +794,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           loop={true}
         />
       </div>
-
       <div
         style={{
           position: "absolute",
@@ -808,7 +810,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           loop={true}
         />
       </div>
-
       <div
         style={{
           position: "absolute",
@@ -825,7 +826,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           loop={true}
         />
       </div>
-
       <div
         style={{
           position: "absolute",
@@ -842,16 +842,14 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           loop={true}
         />
       </div>
-
       {/* Electricity Part */}
-
       <div
         style={{
           position: "absolute",
           top: "60%",
           left: "88%",
           transform: "translate(-50%, -50%) rotate(45deg)", // Apply rotation (tilt) with 45-degree angle
-          width: width <= 768 ? "12%" : "6.8%",
+          width: width <= 768 ? "6%" : "6.8%",
           zIndex: 2,
           pointerEvents: "none", // Ensures no hover interaction
         }}
@@ -866,7 +864,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           }}
         />
       </div>
-
       {/* Bubble Bottles */}
       <div
         style={{
@@ -898,7 +895,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           }}
         />
       </div>
-
       {/* New Div 1 */}
       <div
         style={{
@@ -926,7 +922,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
         //   setShowGallery(false);
         // }}
       ></div>
-
       <img
         src="/assets/gallery_hover.png"
         style={{
@@ -960,9 +955,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
         onMouseOver={() => setHoverText("TOKENOMICS")}
         onMouseOut={() => setHoverText("")}
       ></div>
-
       {/* BOX */}
-
       <div
         style={{
           position: "absolute",
@@ -984,9 +977,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           }}
         />
       </div>
-
       {/* Centered Hover Text */}
-
       {hoverText === "ABOUT" && (
         <div className="hover-text">
           {" "}
