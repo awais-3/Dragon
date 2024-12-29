@@ -178,9 +178,7 @@ const Modal = ({ isOpen, onClose, Heading, Text }) => {
         )}
 
         {Heading === "Presale" && (
-          <p className="text-white text-left text-sm md:text-base leading-loose">
-            {Text}
-          </p>
+          <p className="text-white text-left text-sm md:text-base leading-loose"></p>
         )}
 
         {Heading === "Tokenomics" && (
