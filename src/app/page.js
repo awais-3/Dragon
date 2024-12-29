@@ -718,7 +718,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
         }}
       >
         <img
-          src="/assets/light.gif"
+          src="/light.gif"
           alt="Almari PNG"
           style={{
             transition: "all 0.3s ease-in-out",
