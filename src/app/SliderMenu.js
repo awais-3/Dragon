@@ -9,7 +9,7 @@ const SliderMenu = ({ isOpen, onClose }) => {
         position: "fixed",
         top: 0,
         left: 0,
-        width: isOpen ? "300px" : "0px",
+        width: isOpen ? "380px" : "0px",
         height: "100%",
         backgroundColor: "#1c1c1c",
         color: "white",
@@ -45,57 +45,69 @@ const SliderMenu = ({ isOpen, onClose }) => {
 
       {/* Menu Links */}
       <div style={{ marginTop: "50px" }}>
-        {["HOME", "EPISODES", "HOW TO BUY", "TOKENOMICS", "FAQ"].map(
-          (link, index) => (
-            <div
-              key={index}
-              className="menu_link"
+        {[
+          "HOME",
+          "ABOUT",
+          "PRESALE",
+          "HOW TO BUY",
+          "TOKENOMICS",
+          "GAMES",
+          "FAQ",
+        ].map((link, index) => (
+          <div
+            key={index}
+            className="menu_link"
+            style={{
+              fontSize: "36px",
+              margin: "10px 0",
+              display: "flex",
+              alignItems: "center",
+              cursor: "pointer",
+              transition: "color 0.3s ease, transform 0.3s ease",
+              fontWeight: "bold",
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
+              letterSpacing: "1px",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.color = "#ff8a65";
+              e.target.style.transform = "scale(1.05)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.color = "white";
+              e.target.style.transform = "scale(1)";
+            }}
+          >
+            <span
               style={{
-                fontSize: "24px",
-                margin: "15px 0",
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-                transition: "color 0.3s ease",
+                marginRight: "15px",
+                color: "#ff8a65",
+                fontSize: "42px",
+                transition: "transform 0.3s ease",
+                fontWeight: "bold",
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
               }}
-              onMouseEnter={(e) => (e.target.style.color = "#ff8a65")}
-              onMouseLeave={(e) => (e.target.style.color = "white")}
+              onMouseEnter={(e) => (e.target.style.transform = "scale(1.5)")}
+              onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
             >
-              <span
-                style={{
-                  marginRight: "10px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  transition: "transform 0.3s ease",
-                }}
-                onMouseEnter={(e) => (e.target.style.transform = "scale(1.2)")}
-                onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
-              >
-                <img
-                  src="/dragon.png" // Use your Chinese-themed icon or image here
-                  alt="Lantern"
-                  style={{ width: "24px", height: "24px" }}
-                />
-              </span>
-              {link}
-            </div>
-          )
-        )}
+              ★
+            </span>
+            {link}
+          </div>
+        ))}
       </div>
 
       {/* Social Media Icons */}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-around",
+          justifyContent: "center",
           marginBottom: "20px",
+          gap: "20px",
         }}
       >
         {[
-          { href: "https://dexscreener.com", src: "/telegram.png" },
           { href: "https://telegram.com", src: "/telegram.png" },
-          { href: "https://twitter.com", src: "/telegram.png" },
+          { href: "https://twitter.com", src: "/ttw.png" },
         ].map((icon, index) => (
           <a
             key={index}

@@ -336,8 +336,8 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
       <div
         style={{
           position: "absolute",
-          top: "50%",
-          left: "55%",
+          top: "52%",
+          left: "54%",
           transform: "translate(-50%, -50%)",
           width: "22%",
           cursor: "url(/assets/fire.png), auto",
@@ -365,25 +365,13 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           setShowSnake(false); // Show animation on hover out
         }}
       >
-        {/* Sanke with table */}
-        {/* <Lottie
-          animationData={require("../../public/assets/Json/Snake 2.json")} // Path to your JSON animation
-          loop={true}
-          style={{
-            width: "100%",
-            height: "100%",
-            display: "block",
-            borderRadius: "15px", // Apply same border radius as the container
-          }}
-        /> */}
-
         <img
           className="snake"
-          src="/Snake-Game-5.gif"
+          src="/Final-Snake-2.gif"
           alt="Stroke Snake PNG"
           style={{
-            width: "50%",
-            height: "50%",
+            width: "65%",
+            height: "65%",
             display: "block",
             borderRadius: "15px",
           }}
@@ -396,7 +384,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
         alt="Stroke Snake PNG"
         style={{
           position: "absolute",
-          top: "50%",
+          top: "52%",
           left: "50%",
           transform: "translate(-50%, -50%)",
           width: "13%",
@@ -721,7 +709,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
       <div
         style={{
           position: "absolute",
-          top: width <= 768 ? "5.7%" : "15%",
+          top: width <= 768 ? "15%" : "12%",
           right: width <= 768 ? "-35%" : "-18%",
           transform: "translate(-50%, -50%)",
           width: width <= 768 ? "80%" : "70%",
@@ -734,7 +722,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           alt="Almari PNG"
           style={{
             transition: "all 0.3s ease-in-out",
-            width: "100%",
+            width: width <= 768 ? "80%" : "100%",
             height: "100%",
           }}
         />
