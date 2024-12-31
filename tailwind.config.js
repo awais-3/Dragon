@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Poppins", "Arial Black", "Impact", "sans-serif"],
+        titillium: ["'Titillium Web'", "sans-serif"],
       },
     },
   },

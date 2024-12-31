@@ -7,15 +7,16 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import BlinkingPoint from "./Blink";
 import GlowingEffect from "./GlowingEffect";
 import SliderMenu from "./SliderMenu";
+import { useRouter } from "next/navigation";
 
-function HoverImage({ setHeading, setText, setIsModalOpen }) {
-  const [hoverText, setHoverText] = useState(""); // State to store the text to show
-  const [showSnake, setShowSnake] = useState(false); // State to toggle the PNG visibility for the snake
-  const [showBookStroke, setShowBookStroke] = useState(false); // State to toggle the PNG visibility for the book
-  const [isLoading, setIsLoading] = useState(true); // State for managing the preloader visibility
-  const [showBoxStroke, setShowBoxStroke] = useState(false); // State to toggle the PNG visibility for the book
-  const [showGallery, setShowGallery] = useState(false); // State to toggle the PNG visibility for the book
-  const [width, setWidth] = useState(0); // Initialize state with current window width
+function HoverImage({}) {
+  const [hoverText, setHoverText] = useState("");
+  const [showSnake, setShowSnake] = useState(false);
+  const [showBookStroke, setShowBookStroke] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showBoxStroke, setShowBoxStroke] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+  const [width, setWidth] = useState(0);
   const [snakestroke, setsnakestroke] = useState(false);
   const [scrollstroke, setscrollstroke] = useState(false);
   const [BlackSnakeReturnStroke, setBlackSnakeStrokeReturn] = useState(false);
@@ -23,6 +24,7 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState(null);
+  const router = useRouter();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -32,12 +34,12 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
 
   useEffect(() => {
     const newAudio = new Audio("/assets/sounds/background.mp3");
-    newAudio.loop = true; // Enable looping
+    newAudio.loop = true;
     setAudio(newAudio);
 
     return () => {
       if (newAudio) {
-        newAudio.pause(); // Ensure cleanup
+        newAudio.pause();
       }
     };
   }, []);
@@ -100,24 +102,6 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
     );
   };
 
-  // const scrollBody = (direction) => {
-  //   const scrollAmount = 100;
-  //   const currentScroll =
-  //     document.body.scrollLeft || document.documentElement.scrollLeft;
-
-  //   const newScroll =
-  //     direction === "left"
-  //       ? currentScroll - scrollAmount
-  //       : currentScroll + scrollAmount;
-  //   console.log(newScroll);
-  //   document.body.scrollTo({
-  //     left: newScroll,
-  //     behavior: "smooth",
-  //   });
-
-  //   checkScrollAvailability();
-  // };
-
   useEffect(() => {
     const scrollElement = document.body;
 
@@ -137,14 +121,14 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
   }, []);
 
   // Simulate loading delay
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000); // Set loading time to 3 seconds
-    return () => clearTimeout(timer); // Cleanup timer
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setIsLoading(false), 3000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const playSound = () => {
     const audio = new Audio("/assets/sounds/gong_sound.mp3");
-    audio.volume = 1.0; // Ensure full volume at the start
+    audio.volume = 1.0;
 
     audio
       .play()
@@ -255,7 +239,6 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
             transform: "translateY(-50%)",
             zIndex: 1000000,
           }}
-          // onClick={() => scrollBody("left")}
         >
           <img
             src={"/assets/arrow.png"}
@@ -264,7 +247,6 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
               height: "40px",
               width: "40px",
               rotate: "180deg",
-              // cursor: "pointer",
             }}
           />
         </div>
@@ -279,7 +261,6 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
             transform: "translateY(-50%)",
             zIndex: 1000000,
           }}
-          // onClick={() => scrollBody("right")}
         >
           <img
             src={"/assets/arrow.png"}
@@ -343,26 +324,20 @@ function HoverImage({ setHeading, setText, setIsModalOpen }) {
           cursor: "url(/assets/fire.png), auto",
           borderRadius: "15px",
           transition: "all 0.3s ease-in-out",
-          zIndex: 2, // Place above other elements
-          opacity: showSnake ? 0 : 1, // Hide animation when hovered
+          zIndex: 2,
+          opacity: showSnake ? 0 : 1,
         }}
         onClick={() => {
           playSound();
-          setHeading("About Us");
-          setText(
-            `For twelve long years, Snake has coiled in his hidden temple, silently observing the world and awaiting the dawn of the 'Year of the Snake' - a time destined for wisdom, transformation, and unrivalled fortune. Master of patience and strategy, Snake has subtly shaped the tides of the crypto world, aligning the bull run with the Year of the Snake.
-As the embodiment of luck and cunning, Snake has imbued his temple with treasures of enlightenment and wealth. These gifts are now ready to bless those who seek their fortune in the crypto realm.
-As the temple doors swing open, Snake rises, poised to guide his followers into an era of boundless prosperity. Will you embrace the Snake’s power and claim your fortune, or will you let this once-in-a-lifetime opportunity slip away?`
-          );
-          setIsModalOpen(true); // Show the Modal on click
+          router.push("/about");
         }}
         onMouseOver={() => {
           setHoverText("ABOUT");
-          setShowSnake(true); // Hide animation on hover
+          setShowSnake(true);
         }}
         onMouseOut={() => {
           setHoverText("");
-          setShowSnake(false); // Show animation on hover out
+          setShowSnake(false);
         }}
       >
         <img
@@ -391,7 +366,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           borderRadius: "15px",
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
-          opacity: showSnake ? 1 : 0, // Show PNG only when hovered
+          opacity: showSnake ? 1 : 0,
         }}
       />
       {/* TABLES */}
@@ -420,23 +395,21 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           left: "27%",
           transform: "translate(-50%, -50%)",
           width: width <= 768 ? "14%" : "14%",
-          zIndex: 7, // Place above other elements
+          zIndex: 7,
           transition: "all 0.3s ease-in-out",
-          opacity: showBookStroke ? 0 : 1, // Hide animation when hovered
+          opacity: showBookStroke ? 0 : 1,
         }}
         onClick={() => {
           playSound();
-          setHeading("How to Buy?");
-          setText(`NOT PROVIDED YET`);
-          setIsModalOpen(true); // Show the Modal on click
+          router.push("/how-to-buy");
         }}
         onMouseOver={() => {
           setHoverText("HOW TO BUY");
-          setShowBookStroke(true); // Hide animation on hover
+          setShowBookStroke(true);
         }}
         onMouseOut={() => {
           setHoverText("");
-          setShowBookStroke(false); // Show animation on hover out
+          setShowBookStroke(false);
         }}
       >
         <Lottie
@@ -450,7 +423,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "55%",
           left: "30%",
           transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
+          width: "8%",
           transition: "all 0.3s ease-in-out",
           zIndex: 10, // Place behind the GIF
 
@@ -466,7 +439,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "50%",
           left: "20%",
           transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
+          width: "8%",
           transition: "all 0.3s ease-in-out",
           zIndex: 10, // Place behind the GIF
 
@@ -481,7 +454,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "56%",
           left: "54%",
           transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
+          width: "8%",
           transition: "all 0.3s ease-in-out",
           zIndex: 10, // Place behind the GIF
 
@@ -496,7 +469,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "68%",
           left: "54%",
           transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
+          width: "8%",
           transition: "all 0.3s ease-in-out",
           zIndex: 10, // Place behind the GIF
 
@@ -512,7 +485,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "87%",
           left: "54%",
           transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
+          width: "8%",
           transition: "all 0.3s ease-in-out",
           zIndex: 10, // Place behind the GIF
 
@@ -527,7 +500,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "73%",
           left: "83%",
           transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
+          width: "8%",
           transition: "all 0.3s ease-in-out",
           zIndex: 10, // Place behind the GIF
 
@@ -542,7 +515,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "55%",
           left: "31.5%",
           transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
+          width: "8%",
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
 
@@ -557,7 +530,7 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "20%",
           left: "8%",
           transform: "translate(-50%, -50%)",
-          width: "8%", // Adjust size if needed
+          width: "8%",
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
 
@@ -576,10 +549,10 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "53%",
           left: "27%",
           transform: "translate(-50%, -50%)",
-          width: "11%", // Adjust size if needed
+          width: "11%",
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
-          opacity: showBookStroke ? 1 : 0, // Show PNG only when hovered
+          opacity: showBookStroke ? 1 : 0,
         }}
       />
       <div
@@ -589,23 +562,21 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           right: "4%",
           transform: "translate(-50%, -50%)",
           width: "17%",
-          zIndex: 3, // Place above other elements
+          zIndex: 3,
           transition: "all 0.3s ease-in-out",
-          opacity: showBoxStroke ? 0 : 1, // Hide animation when hovered
+          opacity: showBoxStroke ? 0 : 1,
         }}
         onClick={() => {
           playSound();
-          setHeading("Tokenomics");
-          setText(`NOT PROVIDED YET`);
-          setIsModalOpen(true); // Show the Modal on click
+          router.push("/tokenomics");
         }}
         onMouseOver={() => {
           setHoverText("TOKENOMICS");
-          setShowBoxStroke(true); // Hide animation on hover
+          setShowBoxStroke(true);
         }}
         onMouseOut={() => {
           setHoverText("");
-          setShowBoxStroke(false); // Show animation on hover out
+          setShowBoxStroke(false);
         }}
       >
         <Lottie
@@ -621,10 +592,10 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
           top: "80.5%",
           right: "4%",
           transform: "translate(-50%, -50%)",
-          width: "17%", // Adjust size if needed
+          width: "17%",
           transition: "all 0.3s ease-in-out",
           zIndex: 1, // Place behind the GIF
-          opacity: showBoxStroke ? 1 : 0, // Show PNG only when hovered
+          opacity: showBoxStroke ? 1 : 0,
         }}
       />
       {/* ALMARI */}
@@ -639,32 +610,15 @@ As the temple doors swing open, Snake rises, poised to guide his followers into 
         }}
         onMouseOver={() => {
           setHoverText("FAQ's");
-          setsnakestroke(true); // Hide animation on hover
+          setsnakestroke(true);
         }}
         onMouseOut={() => {
           setHoverText("");
-          setsnakestroke(false); // Show animation on hover out
+          setsnakestroke(false);
         }}
         onClick={() => {
           playSound();
-          setHeading("FAQs");
-          setText(
-            ` What is $SNAKE/,
-$SNAKE is a cryptocurrency token inspired by the wisdom, luck, and cunning of the snake, representing the Year of the Snake in the Chinese zodiac. It’s designed to bring fortune to its holders through a combination of utility, games, and rewards.
-
-/,What Blockchain is $SNAKE on?/,
-$SNAKE is built on the Ethereum blockchain.
-
-/,Is there a Presale?/,
-Detailed instructions are available in the Presale section
-
-/,How do I buy the Presale?/,
-Detailed instructions are available in the How to Buy section
-
-/,What makes $SNAKE unique?/,
-$SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed games to exclusive token airdrops, $SNAKE combines community, fun, and utility. It also symbolizes the Year of the Snake, aligning with themes of wisdom and fortune.`
-          );
-          setIsModalOpen(true); // Show the Modal on click
+          router.push("/faq");
         }}
       ></div>
       <img
@@ -675,10 +629,10 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           top: "49%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "100%", // Adjust size if needed
+          width: "100%",
           transition: "all 0.3s ease-in-out",
           height: "100%",
-          opacity: snakestroke ? 1 : 0, // Show PNG only when hovered
+          opacity: snakestroke ? 1 : 0,
         }}
       />
       {/* Table */}
@@ -693,9 +647,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
         }}
         onClick={() => {
           playSound();
-          setHeading("Presale");
-          setText(`NOT PROVIDED YET`);
-          setIsModalOpen(true); // Show the Modal on click
+          router.push("/presale");
         }}
         onMouseOver={() => {
           setHoverText("PRESALE");
@@ -738,9 +690,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
         }}
         onClick={() => {
           playSound();
-          setHeading("Games");
-          setText(`NOT PROVIDED YET`);
-          setIsModalOpen(true); // Show the Modal on click
+          router.push("/games");
         }}
         onMouseOver={() => {
           setHoverText("GAMES");
@@ -759,10 +709,10 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           top: "86.2%",
           left: "50.1%",
           transform: "translate(-50%, -50%)",
-          width: "21.9%", // Adjust size if needed
+          width: "21.9%",
           transition: "all 0.3s ease-in-out",
           height: "34%",
-          opacity: BlackSnakeReturnStroke ? 1 : 0, // Show PNG only when hovered
+          opacity: BlackSnakeReturnStroke ? 1 : 0,
           zIndex: 11,
         }}
       />
@@ -773,7 +723,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           right: "-2%",
           transform: "translate(-50%, -50%)",
           width: "7%",
-          zIndex: 3, // Place above other elements
+          zIndex: 3,
           transition: "all 0.3s ease-in-out",
         }}
       >
@@ -789,7 +739,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           left: "36.7%",
           transform: "translate(-50%, -50%)",
           width: "12%",
-          zIndex: 3, // Place above other elements
+          zIndex: 3,
           transition: "all 0.3s ease-in-out",
         }}
       >
@@ -805,7 +755,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           right: "24.7%",
           transform: "translate(-50%, -50%)",
           width: "12%",
-          zIndex: 3, // Place above other elements
+          zIndex: 3,
           transition: "all 0.3s ease-in-out",
         }}
       >
@@ -821,7 +771,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           left: "5.1%",
           transform: "translate(-50%, -50%)",
           width: "10.5%",
-          zIndex: 3, // Place above other elements
+          zIndex: 3,
           transition: "all 0.1s ease-in-out",
         }}
       >
@@ -836,14 +786,14 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           position: "absolute",
           top: "60%",
           left: "88%",
-          transform: "translate(-50%, -50%) rotate(45deg)", // Apply rotation (tilt) with 45-degree angle
+          transform: "translate(-50%, -50%) rotate(45deg)",
           width: width <= 768 ? "6%" : "6.8%",
           zIndex: 2,
-          pointerEvents: "none", // Ensures no hover interaction
+          pointerEvents: "none",
         }}
       >
         <Lottie
-          animationData={require("../../public/assets/Json/lightning.json")} // Path to your JSON animation
+          animationData={require("../../public/assets/Json/lightning.json")}
           loop={true}
           style={{
             width: "100%",
@@ -874,7 +824,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           }}
         />
         <Lottie
-          animationData={require("../../public/assets/Json/Liquid.json")} // Path to your JSON animation file
+          animationData={require("../../public/assets/Json/Liquid.json")}
           loop={true}
           style={{
             width: "100%",
@@ -896,19 +846,6 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           zIndex: 5,
           transition: "all 0.3s ease-in-out",
         }}
-        // onClick={() => {
-        //   setHeading("Presale");
-        //   setText(`NOT PROVIDED YET`);
-        //   setIsModalOpen(true); // Show the Modal on click
-        // }}
-        // onMouseOver={() => {
-        //   setHoverText("PRESALE");
-        //   setShowGallery(true); //
-        // }}
-        // onMouseOut={() => {
-        //   setHoverText("");
-        //   setShowGallery(false);
-        // }}
       ></div>
       <img
         src="/assets/gallery_hover.png"
@@ -936,9 +873,7 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
         }}
         onClick={() => {
           playSound();
-          setHeading("Tokenomics");
-          setText(`NOT PROVIDED YET`);
-          setIsModalOpen(true); // Show the Modal on click
+          router.push("/tokenomics");
         }}
         onMouseOver={() => setHoverText("TOKENOMICS")}
         onMouseOut={() => setHoverText("")}
@@ -972,9 +907,9 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           <img
             src="/assets/t1.png"
             style={{
-              width: "100%", // Make sure the image fits inside the div
+              width: "100%",
               height: "100%",
-              objectFit: "cover", // Ensures the image is contained inside the div
+              objectFit: "cover",
             }}
           />
         </div>
@@ -985,9 +920,9 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           <img
             src="/assets/t2.png"
             style={{
-              width: "100%", // Make sure the image fits inside the div
+              width: "100%",
               height: "100%",
-              objectFit: "cover", // Ensures the image is contained inside the div
+              objectFit: "cover",
             }}
           />
         </div>
@@ -998,9 +933,9 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           <img
             src="/assets/t3.png"
             style={{
-              width: "100%", // Make sure the image fits inside the div
+              width: "100%",
               height: "100%",
-              objectFit: "cover", // Ensures the image is contained inside the div
+              objectFit: "cover",
             }}
           />
         </div>
@@ -1011,9 +946,9 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           <img
             src="/assets/t4.png"
             style={{
-              width: "100%", // Make sure the image fits inside the div
+              width: "100%",
               height: "100%",
-              objectFit: "cover", // Ensures the image is contained inside the div
+              objectFit: "cover",
             }}
           />
         </div>
@@ -1024,9 +959,9 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           <img
             src="/assets/t5.png"
             style={{
-              width: "100%", // Make sure the image fits inside the div
+              width: "100%",
               height: "100%",
-              objectFit: "cover", // Ensures the image is contained inside the div
+              objectFit: "cover",
             }}
           />
         </div>
@@ -1037,9 +972,9 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
           <img
             src="/assets/t6.png"
             style={{
-              width: "100%", // Make sure the image fits inside the div
+              width: "100%",
               height: "100%",
-              objectFit: "cover", // Ensures the image is contained inside the div
+              objectFit: "cover",
             }}
           />
         </div>
@@ -1050,25 +985,17 @@ $SNAKE is not just a token - it’s an ecosystem. From interactive snake-themed 
 //PRESALE
 //FAQ's TOKENOMICS
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [heading, setHeading] = useState(""); // State to store the text to show
-  const [text, setText] = useState(""); // State to store the text to show
-
   return (
     <>
       <div className="outer-container">
-        <Modal
+        {/* <Modal
           isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
+          onClose={() => {}}
           Heading={heading}
           Text={text}
-        />
+        /> */}
         <div className="inner-container">
-          <HoverImage
-            setHeading={setHeading}
-            setText={setText}
-            setIsModalOpen={setIsModalOpen}
-          />
+          <HoverImage />
         </div>
       </div>
     </>

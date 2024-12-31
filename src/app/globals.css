@@ -16,6 +16,7 @@
 
 html,
 body {
+  font-family: "Titillium Web", sans-serif !important;
   min-width: 100vw;
   overflow-y: hidden;
   padding: 0;
