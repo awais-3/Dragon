@@ -13,7 +13,7 @@ function HoverImage({}) {
   const [hoverText, setHoverText] = useState("");
   const [showSnake, setShowSnake] = useState(false);
   const [showBookStroke, setShowBookStroke] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [showBoxStroke, setShowBoxStroke] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
   const [width, setWidth] = useState(0);
@@ -121,10 +121,10 @@ function HoverImage({}) {
   }, []);
 
   // Simulate loading delay
-  // useEffect(() => {
-  //   const timer = setTimeout(() => setIsLoading(false), 3000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const playSound = () => {
     const audio = new Audio("/assets/sounds/gong_sound.mp3");
