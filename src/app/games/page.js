@@ -59,12 +59,12 @@ export default function page() {
 
         <img
           src="/games_title.png"
-          className="absolute top-[15.8%] left-[28.5%] !w-[42%] !h-[11%]  "
+          className="absolute top-[15.8%] !left-[31%] md:left-[30.5%] !w-[37%] md:!w-[38%] object-cover md:object-none !h-[11%]  "
         />
 
         <div className=" absolute top-[37%] w-[90%] md:w-[97%]  mx-auto !h-[50%] overflow-auto ">
           <div className=" w-[60%] md:w-[65%]  mx-auto ">
-            <p className=" text-center !text-[18px] !font-bold !font-titillium  max-w-[650px] mx-auto ">
+            <p className=" text-center text-[14px]  md:!text-[18px] !font-bold !font-titillium  max-w-[650px] mx-auto ">
               Step into Jin’s temple and take on exciting games for a chance to
               earn exclusive tokens at launch. Solve intricate puzzles, face
               daring challenges, and unlock hidden treasures as you journey

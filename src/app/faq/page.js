@@ -55,7 +55,7 @@ export default function page() {
 
         <img
           src="/faq_title.png"
-          className="absolute top-[15.8%] left-[28.5%] !w-[42%] !h-[11%]  "
+          className="absolute top-[15.8%] !left-[31%] md:left-[30.5%] !w-[37%] md:!w-[38%] object-cover md:object-none !h-[11%]  "
         />
 
         <div className=" absolute top-[37%] w-[90%] md:w-[95%]  mx-auto !h-[50%] overflow-auto ">
