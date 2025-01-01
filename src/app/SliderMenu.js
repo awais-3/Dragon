@@ -9,25 +9,29 @@ const SliderMenu = ({ isOpen, onClose }) => {
         position: "fixed",
         top: 0,
         left: 0,
-        width: isOpen ? "380px" : "0px",
         height: "100%",
-        backgroundColor: "#1c1c1c",
+        backgroundColor: "#0C0404E5",
         color: "white",
         overflowX: "hidden",
         transition: "width 0.3s ease",
         zIndex: 100000000000,
-        padding: isOpen ? "20px" : "0",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        borderRight: isOpen && "4px solid #E3B057",
+        borderTopRightRadius: "32px",
+        borderBottomRightRadius: "32px",
       }}
+      className={` ${
+        isOpen ? "sm:w-[480px] w-[100%] md:p-[40px] p-[10px]" : "w-0"
+      }`}
     >
       {/* Close Button */}
       <button
         style={{
           position: "absolute",
-          top: "20px",
-          right: "20px",
+          top: "40px",
+          right: "40px",
           background: "none",
           color: "white",
           border: "none",
@@ -39,12 +43,12 @@ const SliderMenu = ({ isOpen, onClose }) => {
         <img
           src="/close_icon.png"
           alt="Close"
-          style={{ width: "30px", height: "30px" }}
+          style={{ width: "48px", height: "48px" }}
         />
       </button>
 
       {/* Menu Links */}
-      <div style={{ marginTop: "50px" }}>
+      <div style={{ marginTop: "100px" }}>
         {[
           "HOME",
           "ABOUT",
@@ -56,7 +60,7 @@ const SliderMenu = ({ isOpen, onClose }) => {
         ].map((link, index) => (
           <div
             key={index}
-            className="menu_link"
+            className="menu_link    !font-black !font-titillium !text-[24px] md:!text-[48px]"
             style={{
               fontSize: "36px",
               margin: "10px 0",
@@ -77,20 +81,7 @@ const SliderMenu = ({ isOpen, onClose }) => {
               e.target.style.transform = "scale(1)";
             }}
           >
-            <span
-              style={{
-                marginRight: "15px",
-                color: "#ff8a65",
-                fontSize: "42px",
-                transition: "transform 0.3s ease",
-                fontWeight: "bold",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
-              }}
-              onMouseEnter={(e) => (e.target.style.transform = "scale(1.5)")}
-              onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
-            >
-              ★
-            </span>
+            <img src="/star.png" className="w-[48px] h-[48px] ml-4 mr-4" />
             {link}
           </div>
         ))}
@@ -100,14 +91,15 @@ const SliderMenu = ({ isOpen, onClose }) => {
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "start",
           marginBottom: "20px",
+          marginLeft: "20px",
           gap: "20px",
         }}
       >
         {[
           { href: "https://telegram.com", src: "/telegram.png" },
-          { href: "https://twitter.com", src: "/ttw.png" },
+          { href: "https://twitter.com", src: "/twitter.png" },
         ].map((icon, index) => (
           <a
             key={index}
@@ -119,7 +111,7 @@ const SliderMenu = ({ isOpen, onClose }) => {
             onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
           >
             <img
-              style={{ width: "30px", height: "30px", cursor: "pointer" }}
+              style={{ width: "48px", height: "48px", cursor: "pointer" }}
               src={icon.src}
               alt="Social Icon"
             />

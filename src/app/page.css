@@ -15,6 +15,17 @@
   background-position: center; /* Centers the image */
   width: 100vw; /* Content wider than the viewport to allow scrolling */
   height: 100vh; /* Matches the height of the container */
+  /* overflow: hidden; */
+}
+
+.inner-container-sub {
+  background-image: url("/illustration.png");
+  background-size: 100% 100%; /* Stretches the image to fit */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image */
+  width: 100vw; /* Content wider than the viewport to allow scrolling */
+  height: 100vh; /* Matches the height of the container */
+  /* overflow: hidden; */
 }
 .preloader {
   position: fixed;

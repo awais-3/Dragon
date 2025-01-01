@@ -7,40 +7,40 @@ export default function page() {
   // Define an array of objects for games
   const games = [
     {
-      src: "/game_1.jpg",
-      title: "Jin's Battle Arena",
+      src: "/game_1.png",
+      title: "Snake",
       status: "playNow",
     },
     {
-      src: "/game_2.jpg",
-      title: "Jin's Treasure Hunt",
+      src: "/game_2.png",
+      title: "Slither Surfer",
       status: "comingSoon",
     },
     {
-      src: "/game_3.jpg",
-      title: "Jin's Puzzle Challenge",
+      src: "/game_3.png",
+      title: "Slither Surfer",
       status: "comingSoon",
     },
     {
-      src: "/game_4.jpg",
-      title: "Jin's Adventure",
-      status: "playNow",
+      src: "/game_4.png",
+      title: "Jin's Riddle Challenge",
+      status: "comingSoon",
     },
     {
-      src: "/game_5.jpg",
-      title: "Jin's Maze",
+      src: "/game_5.png",
+      title: "Jin's Puzzle Temple",
       status: "comingSoon",
     },
     {
       src: "/game_6.png",
-      title: "Jin's Final Quest",
+      title: "Jin's Battle Arena",
       status: "comingSoon",
     },
   ];
 
   return (
-    <div class="bg-black  w-full h-screen min-h-screen overflow-auto">
-      <div className=" relative min-h-full h-full p-5 rounded-lg text-center  w-full md:w-[80%] lg:w-[70%] mx-auto">
+    <div class="bg-black relative  w-full h-screen min-h-screen overflow-auto">
+      <div className=" relative min-h-full h-full p-5 rounded-lg text-center  w-full md:w-[80%] lg:w-[70%] mx-auto z-40">
         <img
           src="/back_icon.png"
           alt="Close"
@@ -64,7 +64,7 @@ export default function page() {
 
         <div className=" absolute top-[37%] w-[90%] md:w-[97%]  mx-auto !h-[50%] overflow-auto ">
           <div className=" w-[60%] md:w-[65%]  mx-auto ">
-            <p className=" text-center !text-[15px] font-bold max-w-[650px] mx-auto ">
+            <p className=" text-center !text-[18px] !font-bold !font-titillium  max-w-[650px] mx-auto ">
               Step into Jin’s temple and take on exciting games for a chance to
               earn exclusive tokens at launch. Solve intricate puzzles, face
               daring challenges, and unlock hidden treasures as you journey
@@ -81,7 +81,9 @@ export default function page() {
                       alt={game.title}
                       className="w-[300px] h-[228px] rounded-[25px] object-fill shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-xl"
                     />
-                    <div className="text-[20px] mt-2">{game.title}</div>
+                    <div className="text-[20px] font-black !font-titillium mt-2 whitespace-nowrap">
+                      {game.title}
+                    </div>
                     {game.status === "comingSoon" ? (
                       <button className="text-[#F59600] border-[1px] rounded-[8px] border-[#E3B057] border-solid px-1 hover:bg-[#E3B057] hover:text-white">
                         Coming Soon
@@ -94,7 +96,7 @@ export default function page() {
                         Play Now
                       </button>
                     )}
-                    <div className="absolute -right-[5px] -top-[10px]">
+                    <div className="absolute -right-[10px] -top-[10px]">
                       <img src="/star.png" className="w-[30px] h-[30px]" />
                     </div>
                   </div>
@@ -104,6 +106,8 @@ export default function page() {
           </div>
         </div>
       </div>
+      <div className="inner-container-sub !absolute !inset-0 z-10"></div>
+      <div className=" !absolute !inset-0 bg-[#0C0404CC] z-20"></div>
     </div>
   );
 }

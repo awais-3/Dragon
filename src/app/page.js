@@ -9,7 +9,7 @@ import GlowingEffect from "./GlowingEffect";
 import SliderMenu from "./SliderMenu";
 import { useRouter } from "next/navigation";
 
-function HoverImage({}) {
+export function HoverImage({}) {
   const [hoverText, setHoverText] = useState("");
   const [showSnake, setShowSnake] = useState(false);
   const [showBookStroke, setShowBookStroke] = useState(false);
@@ -988,12 +988,6 @@ export default function Home() {
   return (
     <>
       <div className="outer-container">
-        {/* <Modal
-          isOpen={isModalOpen}
-          onClose={() => {}}
-          Heading={heading}
-          Text={text}
-        /> */}
         <div className="inner-container">
           <HoverImage />
         </div>

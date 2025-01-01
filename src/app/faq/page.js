@@ -35,8 +35,8 @@ export default function page() {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
   return (
-    <div class="bg-black  w-full h-screen min-h-screen overflow-auto">
-      <div className=" relative min-h-full h-full p-5 rounded-lg text-center  w-full md:w-[80%] lg:w-[70%] mx-auto">
+    <div class="bg-black relative  w-full h-screen min-h-screen overflow-auto">
+      <div className=" relative min-h-full h-full p-5 rounded-lg text-center  w-full md:w-[80%] lg:w-[70%] mx-auto z-40">
         <img
           src="/back_icon.png"
           alt="Close"
@@ -98,6 +98,8 @@ export default function page() {
           </div>
         </div>
       </div>
+      <div className="inner-container-sub !absolute !inset-0 z-10"></div>
+      <div className=" !absolute !inset-0 bg-[#0C0404CC] z-20"></div>
     </div>
   );
 }

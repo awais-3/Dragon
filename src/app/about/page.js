@@ -1,12 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { HoverImage } from "../page";
 
 export default function page() {
   const router = useRouter();
   return (
-    <div class="bg-black  w-full h-screen min-h-screen overflow-auto">
-      <div className=" relative min-h-full h-full p-5 rounded-lg text-center  w-full md:w-[80%] lg:w-[70%] mx-auto">
+    <div class=" bg-black/80 relative  w-full h-screen min-h-screen overflow-auto">
+      <div className=" relative min-h-full h-full p-5 rounded-lg text-center  w-full md:w-[80%] lg:w-[70%] mx-auto z-40 ">
         <img
           src="/back_icon.png"
           alt="Close"
@@ -28,8 +29,8 @@ export default function page() {
           className="absolute top-[15.8%] left-[28.5%] !w-[42%] !h-[11%]  "
         />
 
-        <div className=" absolute top-[38%]  mx-auto !h-[50%] overflow-auto ">
-          <div className=" w-[60%] md:w-[50%]  mx-auto text-[#FFFFFFE5] font-bold">
+        <div className=" absolute top-[38%]  w-[90%] sm:w-[97%]  mx-auto !h-[50%] overflow-auto ">
+          <div className=" w-[60%] md:w-[50%] !font-semibold tracking-tighter !font-titillium text-[16px] md:text-[24px] mx-auto text-[#FFFFFFE5] ">
             <p>
               For twelve long years, Jin, whose name means "gold" in Chinese,
               has coiled in his hidden temple, silently observing the world and
@@ -53,6 +54,8 @@ export default function page() {
           </div>
         </div>
       </div>
+      <div className="inner-container-sub !absolute !inset-0 z-10"></div>
+      <div className=" !absolute !inset-0 bg-[#0C0404CC] z-20"></div>
     </div>
   );
 }
