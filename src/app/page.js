@@ -229,6 +229,17 @@ export function HoverImage({}) {
       </div>
       {/* Slider Menu */}
       <SliderMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <div
+        className={`hidden lg:block absolute top-[50%] z-[999999999999999] transition-all duration-500 ease-in-out ${
+          isMenuOpen ? "left-[400px]" : "-left-[250px]"
+        }`}
+      >
+        <img
+          src="/sidebar_head.png"
+          className="hidden lg:block w-[230px] h-[340px] transform transition-transform duration-500 ease-in-out"
+        />
+      </div>
+
       {/* Left Arrow */}
       {canScrollLeft && (
         <div

@@ -55,8 +55,8 @@ export default function page() {
           className="absolute top-[15.8%] left-[28.5%] !w-[42%] !h-[11%]  "
         />
 
-        <div className=" absolute top-[37%] w-[90%] md:w-[97%]  mx-auto !h-[50%] overflow-auto ">
-          <div className=" w-[60%] md:w-[65%]  mx-auto  !mt-10">
+        <div className=" absolute top-[37%] w-[90%] md:w-[97%]   !flex !justify-center  items-center  mx-auto !h-[50%] overflow-auto ">
+          <div className=" w-[60%] md:w-[65%]    mx-auto  ">
             {/* <div className=" flex flex-col gap-6">
               {steps.map((step, index) => (
                 <div
@@ -96,8 +96,13 @@ export default function page() {
                 </div>
               ))}
             </div> */}
-
-            <div className=" !mt-2 text-[24px] font-black !font-titillium md:text-[54px]">
+            <div className="flex justify-center gap-0">
+              <img
+                src="/pile_in_coin.png"
+                className="w-[200px] h-[200px] md:w-[580px] object-contain md:h-[240px] z-10"
+              />
+            </div>
+            <div className="  text-[24px] font-black !font-titillium md:text-[54px]">
               COMING SOON
             </div>
           </div>

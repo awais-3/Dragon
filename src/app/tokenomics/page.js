@@ -40,9 +40,9 @@ export default function page() {
               {/* Total Supply */}
               <div className="text-xl md:text-4xl text-white  !font-black !font-titillium flex gap-2 items-center justify-center relative">
                 <div data-text="SUPPLY:">SUPPLY:</div>
-                <div className="glitch" data-text="Glitch Text">
+                <div className="glitch" data-text="1,000,000,000 ">
                   {" "}
-                  Glitch Text
+                  1,000,000,000
                 </div>
               </div>
 
@@ -53,7 +53,7 @@ export default function page() {
                   <span className="absolute -right-[15px] -top-[20px] text-orange-400 text-4xl font-bold">
                     <img src="/star.png" />
                   </span>
-                  <h2 className="text-white text-lg md:text-xl font-bold font-sans uppercase">
+                  <h2 className="text-white !font-black !font-titillium text-lg md:text-xl  uppercase">
                     TAX 0/0
                   </h2>
                 </div>
@@ -63,7 +63,7 @@ export default function page() {
                   <span className="absolute -right-[15px] -top-[20px] text-orange-400 text-4xl font-bold">
                     <img src="/star.png" />
                   </span>
-                  <h2 className="text-white text-lg md:text-xl font-bold font-sans uppercase">
+                  <h2 className="text-white  !font-black !font-titilliumtext-lg md:text-xl uppercase">
                     FAIR LAUNCH
                   </h2>
                 </div>
@@ -73,7 +73,7 @@ export default function page() {
                   <span className="absolute -right-[15px] -top-[20px] text-orange-400 text-4xl font-bold">
                     <img src="/star.png" />
                   </span>
-                  <h2 className="text-white text-lg md:text-xl font-bold font-sans uppercase">
+                  <h2 className="text-white !font-black !font-titillium text-lg md:text-xl  uppercase">
                     LOCKED LP
                   </h2>
                 </div>

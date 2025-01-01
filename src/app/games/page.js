@@ -18,7 +18,7 @@ export default function page() {
     },
     {
       src: "/game_3.png",
-      title: "Slither Surfer",
+      title: "Snakes and Ladders",
       status: "comingSoon",
     },
     {

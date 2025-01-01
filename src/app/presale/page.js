@@ -27,13 +27,17 @@ export default function page() {
           src="/presale_title.png"
           className="absolute top-[15.8%] left-[28.5%] !w-[42%] !h-[11%]  "
         />
+        <img
+          src="/presale_yellow.png"
+          className="absolute top-[15.8%] left-[32.5%] !w-[34%] !h-[11%]  "
+        />
 
-        <div className=" !mt-2 text-[24px] font-black !font-titillium md:text-[54px] absolute top-[17%] md:top-[15.8%] left-[28.5%] !w-[42%] !h-[11%] ">
+        {/* <div className=" !mt-2 text-[24px] font-black !font-titillium md:text-[54px] absolute top-[17%] md:top-[15.8%] left-[28.5%] !w-[42%] !h-[11%] ">
           PRESALE
-        </div>
+        </div> */}
 
-        <div className=" absolute top-[36%] w-[90%] md:w-[97%]  mx-auto !h-[55%] overflow-auto ">
-          <div className=" w-[60%] md:w-[60%]  mx-auto text-[#FFFFFFE5] font-bold">
+        <div className=" absolute top-[36%] w-[90%] md:w-[97%] flex justify-center  mx-auto !h-[55%] overflow-auto ">
+          <div className=" w-[60%] md:w-[60%] m-auto mx-auto text-[#FFFFFFE5] font-bold">
             <div className="flex justify-center gap-0">
               <img
                 src="/presale.png"

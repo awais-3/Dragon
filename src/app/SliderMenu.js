@@ -6,7 +6,7 @@ const SliderMenu = ({ isOpen, onClose }) => {
   return (
     <div
       style={{
-        position: "fixed",
+        position: "relative",
         top: 0,
         left: 0,
         height: "100%",
@@ -30,8 +30,8 @@ const SliderMenu = ({ isOpen, onClose }) => {
       <button
         style={{
           position: "absolute",
-          top: "40px",
-          right: "40px",
+          top: "60px",
+          right: "60px",
           background: "none",
           color: "white",
           border: "none",
@@ -48,7 +48,7 @@ const SliderMenu = ({ isOpen, onClose }) => {
       </button>
 
       {/* Menu Links */}
-      <div style={{ marginTop: "100px" }}>
+      <div style={{ marginTop: "80px" }}>
         {[
           "HOME",
           "ABOUT",
