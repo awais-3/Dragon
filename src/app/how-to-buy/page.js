@@ -104,7 +104,7 @@ export default function page() {
             <div className="flex justify-center gap-0">
               <img
                 src="/pile_in_coin.png"
-                className="w-[200px] h-[200px] md:w-[580px] object-contain md:h-[240px] z-10"
+                className="w-[200px] h-[200px] md:w-[580px] object-contain md:h-[3nd40px] z-10"
               />
             </div>
             <div className="  text-[24px] font-black !font-titillium md:text-[54px]">

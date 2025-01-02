@@ -126,6 +126,11 @@ export function HoverImage({}) {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (!isLoading);
+    toggleSound();
+  }, [isLoading]);
+
   const playSound = () => {
     const audio = new Audio("/assets/sounds/gong_sound.mp3");
     audio.volume = 1.0;
@@ -301,7 +306,7 @@ export function HoverImage({}) {
           <img
             style={{ width: "40px", height: "40px" }}
             className=""
-            src="/ttw.png"
+            src="/twitter.png"
             alt="Twitter"
           ></img>
         </a>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 const SliderMenu = ({ isOpen, onClose }) => {
@@ -30,8 +31,8 @@ const SliderMenu = ({ isOpen, onClose }) => {
       <button
         style={{
           position: "absolute",
-          top: "60px",
-          right: "60px",
+          top: "40px",
+          right: "40px",
           background: "none",
           color: "white",
           border: "none",
@@ -48,17 +49,18 @@ const SliderMenu = ({ isOpen, onClose }) => {
       </button>
 
       {/* Menu Links */}
-      <div style={{ marginTop: "80px" }}>
+      <div style={{ marginTop: "40px" }}>
         {[
-          "HOME",
-          "ABOUT",
-          "PRESALE",
-          "HOW TO BUY",
-          "TOKENOMICS",
-          "GAMES",
-          "FAQ",
+          { label: "HOME", href: "/" },
+          { label: "ABOUT", href: "/about" },
+          { label: "PRESALE", href: "/presale" },
+          { label: "HOW TO BUY", href: "/how-to-buy" },
+          { label: "TOKENOMICS", href: "/tokenomics" },
+          { label: "GAMES", href: "/games" },
+          { label: "FAQ", href: "/faq" },
         ].map((link, index) => (
-          <div
+          <Link
+            href={link.href}
             key={index}
             className="menu_link    !font-black !font-titillium !text-[24px] md:!text-[48px]"
             style={{
@@ -82,8 +84,8 @@ const SliderMenu = ({ isOpen, onClose }) => {
             }}
           >
             <img src="/star.png" className="w-[48px] h-[48px] ml-4 mr-4" />
-            {link}
-          </div>
+            {link.label}
+          </Link>
         ))}
       </div>
 
