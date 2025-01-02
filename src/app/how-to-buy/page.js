@@ -104,7 +104,7 @@ export default function page() {
             <div className="flex justify-center gap-0 card">
               <img
                 src="/pile_in_coin.png"
-                className="w-[180px] h-[180px] md:w-[580px] object-contain md:h-[280px] z-10"
+                className="w-[180px] h-[180px] md:w-[580px] object-contain md:h-[280px] z-10 transition-transform duration-300 transform hover:scale-105 "
               />
             </div>
             <div className=" animate-slide-in text-[24px] font-black !font-titillium md:text-[54px]">

@@ -684,7 +684,7 @@ export function HoverImage({}) {
           right: width <= 768 ? "-35%" : "-18%",
           transform: "translate(-50%, -50%)",
           width: width <= 768 ? "80%" : "70%",
-          zIndex: 3,
+          zIndex: 999,
           transition: "all 0.3s ease-in-out",
         }}
       >
@@ -882,13 +882,13 @@ export function HoverImage({}) {
         style={{
           position: "absolute",
           top: "63%",
-          left: "45%",
+          left: "45.5%",
           opacity: 1,
           color: "black",
-          width: "100%",
-          zIndex: 9999999,
+
+          zIndex: 1,
         }}
-        className="!font-black  !font-titillium text-[14px] md:text-[18px] animate-slide-in"
+        className="!font-black left  md:left-[45.5] !font-titillium text-[12px] md:text-[16px] animate-slide-in "
       >
         <div className=" relative">
           <span className=" ml-[17px]"> $JIN PRESALE</span>

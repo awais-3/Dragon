@@ -38,7 +38,7 @@ export default function page() {
             <div className="flex justify-center card">
               <img
                 src="/tokenomics_body.png"
-                className="w-[180px] h-[180px] md:w-[580px] object-contain md:h-[240px] z-10"
+                className="w-[180px] h-[180px] md:w-[580px] object-contain md:h-[240px] z-10 transition-transform duration-300 transform hover:scale-105"
               />
             </div>
             <div className="text-center space-y-2 animate-slide-in">
