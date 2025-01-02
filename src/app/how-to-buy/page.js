@@ -101,13 +101,13 @@ export default function page() {
                 </div>
               ))}
             </div> */}
-            <div className="flex justify-center gap-0">
+            <div className="flex justify-center gap-0 card">
               <img
                 src="/pile_in_coin.png"
-                className="w-[200px] h-[200px] md:w-[580px] object-contain md:h-[3nd40px] z-10"
+                className="w-[180px] h-[180px] md:w-[580px] object-contain md:h-[280px] z-10"
               />
             </div>
-            <div className="  text-[24px] font-black !font-titillium md:text-[54px]">
+            <div className=" animate-slide-in text-[24px] font-black !font-titillium md:text-[54px]">
               COMING SOON
             </div>
           </div>

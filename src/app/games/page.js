@@ -69,7 +69,7 @@ export default function page() {
 
         <div className=" absolute top-[37%] w-[90%] md:w-[97%]  mx-auto !h-[50%] overflow-auto ">
           <div className=" w-[60%] md:w-[65%]  mx-auto ">
-            <p className=" text-center text-[14px]  md:!text-[18px] !font-bold !font-titillium  max-w-[650px] mx-auto ">
+            <p className=" text-center text-[14px]  md:!text-[18px] !font-bold !font-titillium  max-w-[650px] mx-auto  animate-fade-in ">
               Step into Jin’s temple and take on exciting games for a chance to
               earn exclusive tokens at launch. Solve intricate puzzles, face
               daring challenges, and unlock hidden treasures as you journey
@@ -80,7 +80,7 @@ export default function page() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               {games.map((game, index) => {
                 return (
-                  <div className="relative" key={index}>
+                  <div className="relative card" key={index}>
                     <img
                       src={game.src}
                       alt={game.title}

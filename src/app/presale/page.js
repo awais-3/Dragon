@@ -44,14 +44,14 @@ export default function page() {
 
         <div className=" absolute top-[36%] w-[90%] md:w-[97%] flex justify-center  mx-auto !h-[55%] overflow-auto ">
           <div className=" w-[60%] md:w-[60%] m-auto mx-auto text-[#FFFFFFE5] font-bold">
-            <div className="flex justify-center gap-0">
+            <div className="flex justify-center gap-0 card">
               <img
                 src="/presale.png"
-                className="w-[150px] h-[150px] md:w-[580px] object-contain md:h-[240px] z-10"
+                className="w-[180px] h-[180px] md:w-[580px] object-contain md:h-[240px] z-10"
               />
             </div>
             <div className="text-center space-y-2">
-              <div className=" !mt-2 text-[24px] font-black !font-titillium md:text-[54px]">
+              <div className=" animate-slide-in  !mt-2 text-[24px] font-black !font-titillium md:text-[54px]">
                 COMING SOON
               </div>
             </div>

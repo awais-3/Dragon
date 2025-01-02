@@ -35,13 +35,13 @@ export default function page() {
 
         <div className=" absolute top-[36%] w-[90%] md:w-[95%]  mx-auto !h-[55%] overflow-auto ">
           <div className=" w-[60%] md:w-[60%]  mx-auto text-[#FFFFFFE5] font-bold">
-            <div className="flex justify-center">
+            <div className="flex justify-center card">
               <img
                 src="/tokenomics_body.png"
-                className="w-[150px] h-[150px] md:w-[220px] md:h-[220px] z-10"
+                className="w-[180px] h-[180px] md:w-[580px] object-contain md:h-[240px] z-10"
               />
             </div>
-            <div className="text-center space-y-2">
+            <div className="text-center space-y-2 animate-slide-in">
               {/* Total Supply */}
               <div className="text-md md:text-4xl text-white  !font-black !font-titillium flex gap-2 items-center justify-center relative">
                 <div data-text="SUPPLY:">SUPPLY:</div>
@@ -54,7 +54,7 @@ export default function page() {
               {/* Boxes */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 !mt-8">
                 {/* Tax Box */}
-                <div className="relative flex items-center justify-center border-2 border-[#E3B057] rounded-2xl bg-transparent  p-4 md:p-8 shadow-lg">
+                <div className="relative flex items-center justify-center border-2 border-[#E3B057] rounded-2xl bg-transparent  p-4 md:p-6 shadow-lg  transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
                   <span className="absolute -right-[15px] -top-[20px] text-orange-400 text-4xl font-bold">
                     <img src="/star.png" />
                   </span>
@@ -64,7 +64,7 @@ export default function page() {
                 </div>
 
                 {/* Fair Launch Box */}
-                <div className="relative flex items-center justify-center border-2 border-[#E3B057] rounded-2xl bg-transparent   p-4 md:p-8    shadow-lg">
+                <div className="relative flex items-center justify-center border-2 border-[#E3B057] rounded-2xl bg-transparent   p-4 md:p-6    shadow-lg  transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
                   <span className="absolute -right-[15px] -top-[20px] text-orange-400 text-4xl font-bold">
                     <img src="/star.png" />
                   </span>
@@ -74,7 +74,7 @@ export default function page() {
                 </div>
 
                 {/* LP Locked Box */}
-                <div className="relative flex items-center justify-center border-2 border-[#E3B057] rounded-2xl bg-transparent  p-4 md:p-8   shadow-lg">
+                <div className="relative flex items-center justify-center border-2 border-[#E3B057] rounded-2xl bg-transparent  p-4 md:p-6   shadow-lg  transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
                   <span className="absolute -right-[15px] -top-[20px] text-orange-400 text-4xl font-bold">
                     <img src="/star.png" />
                   </span>

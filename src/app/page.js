@@ -126,10 +126,9 @@ export function HoverImage({}) {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    if (!isLoading);
-    toggleSound();
-  }, [isLoading]);
+  // useEffect(() => {
+  //   if (!isLoading) toggleSound();
+  // }, [isLoading]);
 
   const playSound = () => {
     const audio = new Audio("/assets/sounds/gong_sound.mp3");
@@ -233,7 +232,11 @@ export function HoverImage({}) {
         />
       </div>
       {/* Slider Menu */}
-      <SliderMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <SliderMenu
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        playSound={playSound}
+      />
       <div
         className={`hidden lg:block absolute top-[50%] z-[999999999999999] transition-all duration-500 ease-in-out ${
           isMenuOpen ? "left-[400px]" : "-left-[250px]"
@@ -482,7 +485,7 @@ export function HoverImage({}) {
       <div
         style={{
           position: "absolute",
-          top: "68%",
+          top: "73%",
           left: "54%",
           transform: "translate(-50%, -50%)",
           width: "8%",
@@ -875,7 +878,7 @@ export function HoverImage({}) {
           zIndex: showGallery ? 5 : 0,
         }}
       />
-      {/* <div
+      <div
         style={{
           position: "absolute",
           top: "63%",
@@ -885,10 +888,15 @@ export function HoverImage({}) {
           width: "100%",
           zIndex: 9999999,
         }}
-        className="!font-black !font-titillium text-[22px]"
+        className="!font-black  !font-titillium text-[14px] md:text-[18px] animate-slide-in"
       >
-        USDT RAISED: 0$
-      </div> */}
+        <div className=" relative">
+          <span className=" ml-[17px]"> $JIN PRESALE</span>
+          <br />
+          <span className=" !ml-2"> USDT RAISED: $0</span>
+          <br></br>TIME LEFT: 30 DAYS
+        </div>
+      </div>
       {/* New Div 2 */}
       <div
         style={{

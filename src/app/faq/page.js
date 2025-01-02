@@ -64,12 +64,12 @@ export default function page() {
         />
 
         <div className=" absolute top-[37%] w-[90%] md:w-[95%]  mx-auto !h-[50%] overflow-auto ">
-          <div className=" w-[60%] md:w-[60%]  mx-auto text-[#FFFFFFE5] font-bold">
+          <div className=" w-[60%] md:w-[60%] !mt-4  mx-auto text-[#FFFFFFE5] font-bold">
             <div className="space-y-2 md:space-y-4">
               {faqData.map((faq, index) => (
                 <div
-                  key={index}
-                  className={`p-3 md:p-6 rounded-[10px] md:rounded-[20px] border-[3px] border-[#E3B057] bg-orange-100/10 shadow-md transform transition-transform duration-300 cursor-pointer `}
+                  className={`p-3 md:p-6 rounded-[10px] hover:scale-[1.05] md:rounded-[20px] border-[3px] border-[#E3B057] bg-orange-100/10 shadow-md transform transition-transform duration-500 cursor-pointer 
+                  } animate-slide-in`}
                   onClick={() => toggleExpand(index)}
                 >
                   <div className="flex justify-between gap-6 items-center text-lg md:text-xl font-bold text-white uppercase">

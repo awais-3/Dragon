@@ -3,11 +3,11 @@
 import Link from "next/link";
 import React from "react";
 
-const SliderMenu = ({ isOpen, onClose }) => {
+const SliderMenu = ({ isOpen, onClose, playSound }) => {
   return (
     <div
       style={{
-        position: "relative",
+        position: "fixed",
         top: 0,
         left: 0,
         height: "100%",
@@ -62,7 +62,7 @@ const SliderMenu = ({ isOpen, onClose }) => {
           <Link
             href={link.href}
             key={index}
-            className="menu_link    !font-black !font-titillium !text-[24px] md:!text-[48px]"
+            className="menu_link   !font-black !font-titillium !text-[20px] md:!text-[48px]"
             style={{
               fontSize: "36px",
               margin: "10px 0",
@@ -73,6 +73,13 @@ const SliderMenu = ({ isOpen, onClose }) => {
               fontWeight: "bold",
               textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
               letterSpacing: "1px",
+            }}
+            onClick={(e) => {
+              playSound();
+              if (link.href === "/") {
+                e.preventDefault();
+                window.location.href = "/";
+              }
             }}
             onMouseEnter={(e) => {
               e.target.style.color = "#ff8a65";
@@ -100,8 +107,8 @@ const SliderMenu = ({ isOpen, onClose }) => {
         }}
       >
         {[
-          { href: "https://telegram.com", src: "/telegram.png" },
           { href: "https://twitter.com", src: "/twitter.png" },
+          { href: "https://telegram.com", src: "/telegram.png" },
         ].map((icon, index) => (
           <a
             key={index}
