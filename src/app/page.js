@@ -870,6 +870,20 @@ export function HoverImage({}) {
           zIndex: showGallery ? 5 : 0,
         }}
       />
+      {/* <div
+        style={{
+          position: "absolute",
+          top: "63%",
+          left: "45%",
+          opacity: 1,
+          color: "black",
+          width: "100%",
+          zIndex: 9999999,
+        }}
+        className="!font-black !font-titillium text-[22px]"
+      >
+        USDT RAISED: 0$
+      </div> */}
       {/* New Div 2 */}
       <div
         style={{
